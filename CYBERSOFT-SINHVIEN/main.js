@@ -56,3 +56,10 @@ timSoSinhVienGioi();
 
 // viết 1 function, truyền vào điểm và trả về tên user có điểm đó
 // params=>điểm , return về tên user
+
+function layTenUser() {
+  // lấy ds thẻ tr
+  var dsTr = document.querySelectorAll("#tblBody tr");
+  console.log("😀 - layTenUser - dsTr", dsTr);
+}
+layTenUser();
