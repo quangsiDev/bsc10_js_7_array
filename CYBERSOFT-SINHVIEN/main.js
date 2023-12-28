@@ -23,7 +23,8 @@ function timSvGioiNhat() {
       diemLonNhat = arrayDiem[i];
     }
   }
-  document.getElementById("svGioiNhat").innerHTML = diemLonNhat;
+  var ten = layTenUser(diemLonNhat);
+  document.getElementById("svGioiNhat").innerHTML = `${ten} - ${diemLonNhat}`;
 }
 timSvGioiNhat();
 
@@ -57,9 +58,16 @@ timSoSinhVienGioi();
 // viết 1 function, truyền vào điểm và trả về tên user có điểm đó
 // params=>điểm , return về tên user
 
-function layTenUser() {
+function layTenUser(diem) {
   // lấy ds thẻ tr
   var dsTr = document.querySelectorAll("#tblBody tr");
-  console.log("😀 - layTenUser - dsTr", dsTr);
+  // tìm vị trí của diem trong arrayDiem => indexOf
+  var index = arrayDiem.indexOf(diem);
+  // từ index tìm ra vị trí thẻ tr chứa điểm tương ứng
+  var tr = dsTr[index];
+  // lấy ra ds thẻ td nằm trong 1 thẻ tr
+  var dsTd = tr.querySelectorAll("td");
+  var ten = dsTd[2].innerText;
+  return ten;
 }
-layTenUser();
+// layTenUser(9.8);
